@@ -7,4 +7,7 @@ urlpatterns = [
     path('lead-create',LeadCreateView.as_view(),name='lead-create'),
     path('<int:pk>/update/',LeadUpdateView.as_view(), name='lead-update'),
     path('<int:pk>/delete/',LeadDeleteView.as_view(), name='lead-delete'),
+    path('agents',AgentListView.as_view(),name='agent-list'),
+
+
 ]

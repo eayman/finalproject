@@ -33,3 +33,9 @@ class LeadDeleteView(DeleteView):
     
     def get_success_url(self):
         return resolve_url("core:lead-list")
+    
+
+class AgentListView(ListView):
+    template_name = "agents/agent_list.html"
+    queryset = Agent.objects.all()
+    context_object_name = "agents"
