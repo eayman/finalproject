@@ -17,3 +17,19 @@ class LeadCreateView(CreateView):
     
     def get_success_url(self):
         return resolve_url("core:lead-list")
+    
+class LeadUpdateView(UpdateView):
+    template_name = "leads/lead_update.html"
+    queryset = Lead.objects.all()
+    form_class = LeadModelForm
+    
+    def get_success_url(self):
+        return resolve_url("core:lead-list")
+    
+
+class LeadDeleteView(DeleteView):
+    template_name = "leads/lead_delete.html"
+    queryset = Lead.objects.all()
+    
+    def get_success_url(self):
+        return resolve_url("core:lead-list")
