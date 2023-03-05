@@ -43,6 +43,19 @@ class AgentListView(ListView):
     queryset = Agent.objects.all()
     context_object_name = "agents"
 
+class AgentDetailView(DetailView):
+    template_name = "agents/agent_profile.html"
+    queryset = Agent.objects.all()
+    context_object_name = "agent"
+
+def lead_detail(request,pk):
+    lead = get_object_or_404(Lead,id=pk)
+    
+    context = {
+        'lead':lead,
+    }
+    return render(request,'leads/lead_detail.html',context)
+
 
 class AgentCreateView(CreateView):
     template_name = "agents/agent_create.html"

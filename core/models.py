@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Agent(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_image = models.ImageField(null=True, blank=True)
+    profile_image = models.ImageField(null=True, blank=True, upload_to='profiles/',default='profiles/default-profile.png')
 
     def __str__(self):
         return self.user.first_name + " " + self.user.last_name
