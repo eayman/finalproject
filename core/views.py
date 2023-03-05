@@ -13,17 +13,17 @@ class LeadListView(ListView):
     queryset = Lead.objects.all()
     context_object_name = "leads"
 
-def lead_list(request):
-    agent = get_object_or_404(Agent,user=request.user)
-    
-    leads = Lead.objects.filter()
-    
+    def get_queryset(self):
+        if self.request.user.is_anonymous:
+            return Lead.objects.all()
+        else:
+            agent = get_object_or_404(Agent,user=self.request.user)
+            return Lead.objects.filter(agent=agent)
 
+        
+        
+       
 
-    context = {
-        'leads':leads,
-    }
-    return(request,"leads/lead_list.html",context)
 
 
 
