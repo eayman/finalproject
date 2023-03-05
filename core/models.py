@@ -3,8 +3,17 @@ from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
 
 class Agent(models.Model):
+    roles =[
+            ('Admin',1),
+            ('Data Entry',2),
+            ('Communication',3),
+            ('Abstract',4),
+            
+            ]
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     profile_image = models.ImageField(null=True, blank=True, upload_to='profiles/',default='profiles/default-profile.png')
+    #role = models.CharField(max_length=50,choices=roles, null=True, blank=True)
+
 
     def __str__(self):
         return self.user.first_name + " " + self.user.last_name

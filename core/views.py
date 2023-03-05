@@ -48,13 +48,6 @@ class AgentDetailView(DetailView):
     queryset = Agent.objects.all()
     context_object_name = "agent"
 
-def lead_detail(request,pk):
-    lead = get_object_or_404(Lead,id=pk)
-    
-    context = {
-        'lead':lead,
-    }
-    return render(request,'leads/lead_detail.html',context)
 
 
 class AgentCreateView(CreateView):
@@ -63,7 +56,9 @@ class AgentCreateView(CreateView):
     
     def get_success_url(self):
         return resolve_url("core:agent-list")
-    
+
+
+
 
 @receiver(post_save,sender=User)
 def post_create_user(sender, instance, created, **kwargs):
@@ -85,4 +80,6 @@ class AgentDeleteView(DeleteView):
 
     def get_success_url(self):
         return resolve_url("core:agent-list")
+    
+
     
