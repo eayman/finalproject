@@ -13,6 +13,19 @@ class LeadListView(ListView):
     queryset = Lead.objects.all()
     context_object_name = "leads"
 
+def lead_list(request):
+    agent = get_object_or_404(Agent,user=request.user)
+    
+    leads = Lead.objects.filter()
+    
+
+
+    context = {
+        'leads':leads,
+    }
+    return(request,"leads/lead_list.html",context)
+
+
 
 class LeadCreateView(CreateView):
     template_name = "leads/lead_create.html"
