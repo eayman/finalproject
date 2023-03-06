@@ -22,11 +22,6 @@ class LeadListView(ListView):
             agent = get_object_or_404(Agent,user=self.request.user)
             return Lead.objects.filter(agent=agent)
 
-    
-
-
-
-
 class LeadCreateView(CreateView):
     template_name = "leads/lead_create.html"
     form_class = LeadModelForm
