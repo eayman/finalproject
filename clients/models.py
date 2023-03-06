@@ -6,6 +6,8 @@ class client(models.Model):
     last_name=models.CharField(max_length=100 , null=False , blank=False)
     email=models.EmailField(null=True , blank=True)
     fb_account=models.URLField(null=True , blank=True)
+
+    
 def finished():
     return datetime.today() + timedelta(days=30)
 
