@@ -12,6 +12,7 @@
         <a class="mr-5 hover:text-gray-900" href="{% url 'core:agent-list' %}">Agents</a> 
         <a class="mr-5 hover:text-gray-900" href="{% url 'core:lead-list' %}">Leads</a>
         <a class="mr-5 hover:text-gray-900" href="{% url 'contact-us' %}">Contact us</a>
+        <a class="mr-5 hover:text-gray-900" href="{% url 'clients:client_list' %}">clients</a>
       </nav>
       {% if request.user.is_authenticated  %}
         Logged in as: {{request.user.username}}
