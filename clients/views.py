@@ -28,7 +28,7 @@ class ClientCreateView(CreateView):
         return resolve_url("clients:client_list")
     
 class ClientUpdateView(UpdateView):
-    template_name = "leads/lead_update.html"
+    template_name = "clients/clients_update.html"
     queryset = Client.objects.all()
     form_class = clientModelForm
     
@@ -37,7 +37,7 @@ class ClientUpdateView(UpdateView):
     
 
 class ClientDeleteView(DeleteView):
-    template_name = "leads/lead_delete.html"
+    template_name = "clients/client_delete.html"
     queryset = Client.objects.all()
     
     def get_success_url(self):
