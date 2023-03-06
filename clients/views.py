@@ -9,7 +9,7 @@ class OffersPageView(TemplateView):
 class Client_list(TemplateView):
     template_name ="clients/client_list.html/"
     queryset = Client.objects.all()
-    context_object_name = "leads"
+    context_object_name = "client"
 
     def get_queryset(self):
             return Client.objects.all()
