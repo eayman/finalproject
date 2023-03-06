@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+    # Third party apps
+    #'crispy_forms',
+    #'crispy_tailwind',
+    # Local apps
+    'core',
+    'clients',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +140,7 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "/leads"
 LOGOUT_REDIRECT_URL = "landing-page"
+
+#CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+#CRISPY_TEMPLATE_PACK = 'uni-form'

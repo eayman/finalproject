@@ -1,17 +1,41 @@
 from django.db import models
 from datetime import datetime ,timedelta
-# Create your models here.
+from django.contrib.auth.models import User
+
+
 class Client(models.Model):
-    First_name=models.CharField(max_length=100 , null=False , blank=False)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name=models.CharField(max_length=100 , null=False , blank=False)
     last_name=models.CharField(max_length=100 , null=False , blank=False)
     email=models.EmailField(null=True , blank=True)
     fb_account=models.URLField(null=True , blank=True)
 
-    
-def finished():
-    return datetime.today() + timedelta(days=30)
+class Plan(models.Model):
+    speeds = {
+        (4,4),
+        (8,8),
+        (16,16),
+        (32,32),
+    }
+    periods = {
+        ('1 month',1),
+        ('3 months',3),
+        ('6 months',6),
+        ('12 months',12),
+    }
+    name = models.CharField(max_length=200)
+    speed = models.PositiveSmallIntegerField(choices=speeds)
+    duration = models.DurationField(choices=periods)
+    price = models.PositiveSmallIntegerField()
 
 class Subscription(models.Model):
-    client = models.ForeignKey(Client, related_name="clients", on_delete=models.DO_NOTHING)
-    date_subscription = models.DateTimeField(auto_now_sub=True)
-    subscription_period=  models.DateField (default= finished)
+    client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
+    plan = models.OneToOneField(Plan, on_delete=models.DO_NOTHING)
+    subscription_date = models.DateField()
+
+    def sub_end_date(self):
+        return self.subscription_date + timedelta(months= self.plan.duration)
+    
+    def remaining_period(self):
+        pass
+

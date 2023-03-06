@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404,redirect, resolve_url
 from .forms import *
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.contrib.auth.views import LoginView
 
 class LandingPageView(TemplateView):
     template_name = "landing.html"
@@ -95,4 +96,6 @@ class AgentDeleteView(DeleteView):
         return resolve_url("core:agent-list")
     
 
-    
+class CustomLoginView(LoginView):
+    template_name = 'registration/login.html'
+    form_class = LoginForm

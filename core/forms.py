@@ -3,7 +3,7 @@ from django.forms import ModelForm
 from .models import *
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-
+from django.contrib.auth.forms import AuthenticationForm
 
 class LeadModelForm(ModelForm):
     class Meta:
@@ -63,4 +63,29 @@ class AgentModelForm(ModelForm):
 
 
         
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(
+        label='',
+        widget=forms.TextInput(
+            attrs = {
+                'placeholder': 'User Name',
+                'type': 'username',
+                'name' : 'username',
+                'id': 'username',
+                'class': 'w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500'
+            }
+        )
+    )
 
+    password = forms.CharField(
+        label='', 
+        widget=forms.PasswordInput(
+            attrs = {
+                'placeholder': 'Password',
+                'type': 'password',
+                'name' : 'password',
+                'id': 'password',
+                'class': 'w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500'
+            }
+        )
+    )
