@@ -24,9 +24,10 @@ class Plan(models.Model):
         ('12 months',12),
     }
     name = models.CharField(max_length=200)
+    description = models.TextField(max_length=500,null=True,blank=True,help_text="enter details")
     speed = models.PositiveSmallIntegerField(choices=speeds)
     duration = models.DurationField(choices=periods)
-    price = models.PositiveSmallIntegerField()
+    cost = models.PositiveSmallIntegerField()
 
 class Subscription(models.Model):
     client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
