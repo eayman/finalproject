@@ -5,11 +5,10 @@ from .forms import *
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.views import LoginView
+from django.contrib import  messages
 
 class LandingPageView(TemplateView):
     template_name = "landing.html"
-
-
 
 class LeadListView(ListView):
     template_name = "leads/lead_list.html"
@@ -23,9 +22,7 @@ class LeadListView(ListView):
             agent = get_object_or_404(Agent,user=self.request.user)
             return Lead.objects.filter(agent=agent)
 
-        
-        
-       
+    
 
 
 
