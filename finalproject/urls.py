@@ -9,6 +9,7 @@ from django.contrib.auth.views import LoginView,LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',LandingPageView.as_view(),name='landing-page'),
+    path('contact-us',ContactPageView.as_view(),name='contact-us'),
     path('offers',OffersPageView.as_view(),name='offers'),
     path('',include("core.urls",namespace="core")),
     path('clients/',include("clients.urls",namespace="clients")),

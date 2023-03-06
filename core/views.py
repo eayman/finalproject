@@ -9,6 +9,8 @@ from django.contrib.auth.views import LoginView
 class LandingPageView(TemplateView):
     template_name = "landing.html"
 
+
+
 class LeadListView(ListView):
     template_name = "leads/lead_list.html"
     queryset = Lead.objects.all()
@@ -99,3 +101,8 @@ class AgentDeleteView(DeleteView):
 class CustomLoginView(LoginView):
     template_name = 'registration/login.html'
     form_class = LoginForm
+
+
+
+class ContactPageView(TemplateView):
+    template_name = "contact.html"
