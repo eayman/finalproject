@@ -6,10 +6,12 @@ from django.views.generic import TemplateView,ListView,CreateView,UpdateView,Del
 
 class OffersPageView(TemplateView):
     template_name = "offers.html"
+    
 class ClientListView(ListView):
     template_name ="clients/client_list.html"
     queryset = Client.objects.all()
     context_object_name = "client"
+    
     
 class ClientCreateView(CreateView):
     template_name = "clients/client_create.html"
