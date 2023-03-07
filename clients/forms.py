@@ -8,7 +8,8 @@ class clientModelForm(ModelForm):
     class Meta:
         model = Client
         fields = "__all__"
-        #exclude = ('agent',)
+        
+        exclude = ('user',)
 
 
 

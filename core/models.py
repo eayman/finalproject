@@ -8,7 +8,6 @@ class Agent(models.Model):
             ('Data Entry',2),
             ('Communication',3),
             ('Abstract',4),
-            
             ]
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     profile_image = models.ImageField(null=True, blank=True, upload_to='profiles/',default='profiles/default-profile.png')
