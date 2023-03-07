@@ -1,40 +1,45 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
     <div class="w-full mb-6 py-6 flex justify-between items-center border-b border-gray-200">
         <div class="text-4xl text-gray-800">
-            <h1>Clients</h1>
+            <h1>clients</h1>
         </div>
         <div class="text-1xl text-gray-500 hover:text-blue-500">
-          <a href="{% url 'clients:client-create' %}"><button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-            Create new client
-          </button></a>
-          
-      </div>
+            <a href="{% url 'clients:client-create' %}"><button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+              Create new client
+            </button></a>
+            
+        </div>
         
     </div>
 <!-- component -->
 <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
     <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
-        <thead class="bg-gray-50">
+      <thead class="bg-gray-50">
         <tr>
-            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
-            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Email</th>
-            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Send Email</th>
-            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Phone</th>
-            <th scope="col" class="px-6 py-4 font-medium text-gray-900">Facebook</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Address</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Email</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Send Email</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Phone</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Whatsapp</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Facebook</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Messenger</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Actions</th>
         </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+      </thead>
+      <tbody class="divide-y divide-gray-100 border-t border-gray-100">
         {% for client in clients %}
         <tr class="hover:bg-gray-50">
-            <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
+          <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
             <div class="text-sm">
               <div class="font-medium text-gray-700">{{client}}</div>
               
             </div>
           </th>
-          
+          <td class="px-6 py-4">{{client.address}}</td>
           </td>
           <td class="px-6 py-4">{{client.email}}</td>
           <td class="px-6 py-4">
@@ -73,7 +78,7 @@
           <td class="px-6 py-4">
             <div class="flex gap-2">
                 <!-- Facebook -->
-                   <a href="{{lead.fb_account}}" target="_blank">
+                   <a href="{{client.fb_account}}" target="_blank">
                     <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-7 w-7"
@@ -87,13 +92,31 @@
             </div>
           </td>
 
-          
+          <td class="px-6 py-4">
+            <div class="flex gap-2">
+                <!-- Messenger -->
+                   <a href="https://m.me/grubngomealdelivery" target="_blank">
+                     
+                      <svg
+                      class="h-7 w-7"
+                      fill="currentColor"
+                      viewbox="0 0 24 24"
+                      style="color: #0084ff"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd">
+                      <path
+                        d="M12 0c-6.627 0-12 4.975-12 11.111 0 3.497 1.745 6.616 4.472 8.652v4.237l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.974 12-11.111 0-6.136-5.373-11.111-12-11.111zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z" />
+                    </svg>
+                   </a>
+            </div>
+          </td>
          
 
           
           <td class="px-6 py-4">
             <div class="flex justify-end gap-4">
-              <a x-data="{ tooltip: 'Delete' }" href="{% url 'clients:client-delete' client.id %}">
+              <a x-data="{ tooltip: 'Delete' }" href="{% url 'clients:client-delete' Client.id %}">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -110,9 +133,7 @@
                   />
                 </svg>
               </a>
-              
-            <a x-data="{ tooltip: 'Edite' }" href="{% url 'clients:client-update' client.id %}">
-                                                    
+              <a x-data="{ tooltip: 'Edite' }" href="{% url 'clients:client-update' Client.id %}">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -126,9 +147,9 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
-                />
+                  />
                 </svg>
-            </a>
+              </a>
             </div>
           </td>
         </tr>
