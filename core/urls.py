@@ -12,6 +12,7 @@ urlpatterns = [
     path('agents',AgentListView.as_view(),name='agent-list'),
     path('agents/<int:pk>/',AgentDetailView.as_view(), name='agent-profile'),
     path('agetns/agent-create',AgentCreateView.as_view(),name='agent-create'),
+    path('agents/<int:pk>/update/',AgentUpdateView.as_view(), name='agent-update'),
     path('agetns/<int:pk>/agent-delete/',AgentDeleteView.as_view(), name='agent-delete'),
     
 

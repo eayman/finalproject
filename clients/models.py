@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 
 
 class Client(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name=models.CharField(max_length=100 , null=False , blank=False)
     last_name=models.CharField(max_length=100 , null=False , blank=False)
     email=models.EmailField(null=True , blank=True)

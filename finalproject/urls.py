@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.urls import path,include
 from core.views import *
 from clients.views import *
-from django.contrib.auth.views import LoginView,LogoutView
+from django.contrib.auth.views import LoginView,LogoutView, PasswordChangeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -16,6 +16,7 @@ urlpatterns = [
     #### Auth URLs
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
+    path('password_change/',PasswordChangeView.as_view(),name='password_change')
 ]
 
 

@@ -68,15 +68,10 @@ class AgentCreateView(CreateView):
 
 
 
-@receiver(post_save,sender=User)
-def post_create_user(sender, instance, created, **kwargs):
-    if created:
-        Agent.objects.create(user=instance)
-
 class AgentUpdateView(UpdateView):
     template_name = "agents/agent_update.html"
-    queryset = Lead.objects.all()
-    form_class = ""
+    queryset = User.objects.all()
+    form_class = CustomUserUpdateForm
     
     def get_success_url(self):
         return resolve_url("core:agent-list")
