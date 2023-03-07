@@ -12,7 +12,7 @@ urlpatterns = [
     path('contact-us',ContactPageView.as_view(),name='contact-us'),
     path('offers',OffersPageView.as_view(),name='offers'),
     path('',include("core.urls",namespace="core")),
-    path('clients/',include("clients.urls",namespace="clients")),
+    path('',include("clients.urls",namespace="clients")),
     #### Auth URLs
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),

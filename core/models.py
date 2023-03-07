@@ -12,6 +12,7 @@ class Agent(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     role = models.CharField(max_length=50,choices=roles, null=True, blank=True)
     profile_image = models.ImageField(null=True, blank=True, upload_to='profiles/',default='profiles/default-profile.png')
+    created_at = models.DateField(auto_now=True, editable=False)
 
 
     def __str__(self):
