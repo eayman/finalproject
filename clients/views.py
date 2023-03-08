@@ -60,3 +60,9 @@ class SubListView(ListView):
     queryset = Subscription.objects.all()
     context_object_name = "subscriptions"
 
+class SubCreateView(CreateView):
+    template_name = "clients/client_create.html"
+    form_class = subModelForm
+    
+    def get_success_url(self):
+        return resolve_url("clients:sub-list")
