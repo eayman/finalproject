@@ -40,13 +40,16 @@ class Plan(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=500,null=True,blank=True,help_text="enter details")
     speed = models.PositiveSmallIntegerField(choices=speeds)
-    duration = models.DurationField(choices=periods)
-    cost = models.PositiveSmallIntegerField()
+    duration = models.PositiveSmallIntegerField(choices=periods)
+    month_cost = models.PositiveSmallIntegerField()
+    is_popular = models.BooleanField(default=False)
     created_at = models.DateField(auto_now=True, editable=False)
 
     def __str__(self):
         return str(self.name)
 
+    def total_cost(self):
+        return (self.duration * self.month_cost)
 
 class Subscription(models.Model):
 
