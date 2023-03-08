@@ -14,6 +14,6 @@ urlpatterns = [
 
     ################################ Subscriptions URLs ######################################
     path('subscriptions', SubListView.as_view(),name='sub-list'),
-
+    
 
 ]

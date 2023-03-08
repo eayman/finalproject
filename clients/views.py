@@ -59,3 +59,4 @@ class SubListView(ListView):
     template_name ="subscriptions/sub_list.html"
     queryset = Subscription.objects.all()
     context_object_name = "subscriptions"
+
