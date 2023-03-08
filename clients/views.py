@@ -6,7 +6,11 @@ from django.views.generic import TemplateView,ListView,CreateView,UpdateView,Del
 
 class OffersPageView(TemplateView):
     template_name = "offers.html"
-    
+
+#############################################################
+#################### Clients Views ##########################
+#############################################################
+
 class ClientListView(ListView):
     template_name ="clients/client_list.html"
     queryset = Client.objects.all()
@@ -34,3 +38,24 @@ class ClienDeletetView(DeleteView):
     queryset = Client.objects.all()
     def get_success_url(self):
         return resolve_url("clients:client-list")
+    
+
+
+#############################################################
+###################### Plans Views ##########################
+#############################################################
+
+class PlanListView(ListView):
+    template_name ="subscriptions/sub_list.html"
+    queryset = Subscription.objects.all()
+    context_object_name = "plans"
+
+
+#############################################################
+#################### Subscriptions Views ####################
+#############################################################
+
+class SubListView(ListView):
+    template_name ="subscriptions/sub_list.html"
+    queryset = Subscription.objects.all()
+    context_object_name = "subscriptions"
