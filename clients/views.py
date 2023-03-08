@@ -61,7 +61,7 @@ class SubListView(ListView):
     context_object_name = "subscriptions"
 
 class SubCreateView(CreateView):
-    template_name = "clients/client_create.html"
+    template_name = "subscriptions/sub_create.html"
     form_class = SubModelForm
     
     def get_success_url(self):
