@@ -62,7 +62,7 @@ class SubListView(ListView):
 
 class SubCreateView(CreateView):
     template_name = "clients/client_create.html"
-    form_class = subModelForm
+    form_class = SubModelForm
     
     def get_success_url(self):
         return resolve_url("clients:sub-list")
