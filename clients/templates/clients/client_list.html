@@ -167,7 +167,7 @@
           
           <td class="px-6 py-4">
             <div class="flex justify-end gap-4">
-              <a x-data="{ tooltip: 'Delete' }" href="{% url 'clients:client-delete' Client.id %}">
+              <a x-data="{ tooltip: 'Delete' }" href="{% url 'clients:client-delete' client.id %}">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -184,7 +184,7 @@
                   />
                 </svg>
               </a>
-              <a x-data="{ tooltip: 'Edite' }" href="{% url 'clients:client-update' Client.id %}">
+              <a x-data="{ tooltip: 'Edite' }" href="{% url 'clients:client-update' client.id %}">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
