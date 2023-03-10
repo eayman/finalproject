@@ -32,10 +32,10 @@ class Plan(models.Model):
         (32,32),
     }
     periods = {
-        ('1 month',1),
-        ('3 months',3),
-        ('6 months',6),
-        ('12 months',12),
+        (1,1),
+        (3,3),
+        (6,6),
+        (12,12),
     }
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=500,null=True,blank=True,help_text="enter details")

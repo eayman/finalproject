@@ -79,20 +79,20 @@
       </tr>
     </thead>
     <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-      {% for agent in agents %}
+      {% for plan in plans %}
       <tr class="hover:bg-gray-50">
         <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
           <div class="relative h-10 w-10">
             <img
               class="h-full w-full rounded-full object-cover object-center"
-              src="{{agent.profile_image.url}}"
+              src="{{plan}}"
               alt=""
             />
             <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
           </div>
           <div class="text-sm">
-            <div class="font-medium text-gray-700">{{agent}}</div>
-            <div class="text-gray-400">{{agent.user.email}}</div>
+            <div class="font-medium text-gray-700">{{plan}}</div>
+            <div class="text-gray-400">{{plan}}</div>
           </div>
         </th>
         <td class="px-6 py-4">
@@ -125,7 +125,7 @@
         </td>
         <td class="px-6 py-4">
           <div class="flex justify-end gap-4">
-            <a x-data="{ tooltip: 'Delete' }" href="{% url 'core:agent-delete' agent.user.id%}">
+            <a x-data="{ tooltip: 'Delete' }" href="{% url 'clients:plan-delete' plan.id%}">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -142,7 +142,7 @@
                 />
               </svg>
             </a>
-            <a x-data="{ tooltip: 'Edite' }" href="{% url 'core:agent-profile' agent.id %}">
+            <a x-data="{ tooltip: 'Edite' }" href="{% url 'clients:plan-update' plan.id %}">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

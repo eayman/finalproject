@@ -50,7 +50,7 @@ class PlanListView(ListView):
     queryset = Plan.objects.all()
     context_object_name = "plans"
 
-class planCreateView(CreateView):
+class PlanCreateView(CreateView):
     template_name = "plans/plan_create.html"
     form_class = PlanModelForm
     

@@ -62,6 +62,7 @@ class CustomUserUpdateForm(UserChangeForm):
             user = super(CustomUserUpdateForm, self).save(commit= False) 
             user.save()
             agent = Agent.objects.get(user=user)
+            
         
     def __init__(self, *args, **kwargs ):
             super(CustomUserUpdateForm,self).__init__(*args, **kwargs)
