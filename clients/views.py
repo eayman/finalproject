@@ -19,7 +19,7 @@ class ClientListView(ListView):
     
 class ClientCreateView(CreateView):
     template_name = "clients/client_create.html"
-    form_class = clientModelForm
+    form_class = ClientModelForm
     
     def get_success_url(self):
         return resolve_url("clients:client-list")
@@ -27,7 +27,7 @@ class ClientCreateView(CreateView):
 class ClientUpdateView(UpdateView):
     template_name = "clients/client_update.html"
     queryset = Client.objects.all()
-    form_class = clientModelForm
+    form_class = ClientModelForm
     
     def get_success_url(self):
         return resolve_url("clients:client-list")
@@ -49,6 +49,7 @@ class PlanListView(ListView):
     template_name ="plans/plan_list.html"
     queryset = Plan.objects.all()
     context_object_name = "plans"
+
 class planCreateView(CreateView):
     template_name = "plans/plan_create.html"
     form_class = PlanModelForm
