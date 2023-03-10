@@ -25,7 +25,7 @@ class ClientCreateView(CreateView):
         return resolve_url("clients:client-list")
     
 class ClientUpdateView(UpdateView):
-    template_name = "clients/clients_update.html"
+    template_name = "clients/client_update.html"
     queryset = Client.objects.all()
     form_class = clientModelForm
     
@@ -47,7 +47,7 @@ class ClienDeletetView(DeleteView):
 
 class PlanListView(ListView):
     template_name ="plans/plan_list.html"
-    queryset = Subscription.objects.all()
+    queryset = Plan.objects.all()
     context_object_name = "plans"
 class planCreateView(CreateView):
     template_name = "plans/plan_create.html"
@@ -56,6 +56,20 @@ class planCreateView(CreateView):
     def get_success_url(self):
         return resolve_url("clients:plan-list")
 
+class planUpdateView(UpdateView):
+    template_name = "clients/client_update.html"
+    queryset = Plan.objects.all()
+    form_class = PlanModelForm
+    
+    def get_success_url(self):
+        return resolve_url("clients:plan-list")
+    
+
+class PlanDeletetView(DeleteView):
+    template_name = "clients/plan_delete.html"
+    queryset = Plan.objects.all()
+    def get_success_url(self):
+        return resolve_url("clients:plan-list")
 #############################################################
 #################### Subscriptions Views ####################
 #############################################################
