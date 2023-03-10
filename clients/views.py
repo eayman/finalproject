@@ -33,7 +33,7 @@ class ClientUpdateView(UpdateView):
         return resolve_url("clients:client-list")
     
 
-class ClienDeletetView(DeleteView):
+class ClientDeletetView(DeleteView):
     template_name = "clients/client_delete.html"
     queryset = Client.objects.all()
     def get_success_url(self):
