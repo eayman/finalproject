@@ -56,7 +56,7 @@ class planCreateView(CreateView):
     def get_success_url(self):
         return resolve_url("clients:plan-list")
 
-class planUpdateView(UpdateView):
+class PlanUpdateView(UpdateView):
     template_name = "clients/client_update.html"
     queryset = Plan.objects.all()
     form_class = PlanModelForm
@@ -83,5 +83,21 @@ class SubCreateView(CreateView):
     template_name = "subscriptions/sub_create.html"
     form_class = SubModelForm
     
+    def get_success_url(self):
+        return resolve_url("clients:sub-list")
+    
+    
+class SubUpdateView(UpdateView):
+    template_name = "clients/sub_update.html"
+    queryset = Subscription.objects.all()
+    form_class =  SubModelForm
+    
+    def get_success_url(self):
+        return resolve_url("clients:sub-list")
+    
+
+class SubDeletetView(DeleteView):
+    template_name = "clients/sub_delete.html"
+    queryset =Subscription.objects.all()
     def get_success_url(self):
         return resolve_url("clients:sub-list")
