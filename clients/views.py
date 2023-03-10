@@ -53,12 +53,12 @@ class PlanListView(ListView):
 class planCreateView(CreateView):
     template_name = "plans/plan_create.html"
     form_class = PlanModelForm
-    
     def get_success_url(self):
         return resolve_url("clients:plan-list")
 
+
 class PlanUpdateView(UpdateView):
-    template_name = "clients/client_update.html"
+    template_name = "plans/plan_update.html"
     queryset = Plan.objects.all()
     form_class = PlanModelForm
     
