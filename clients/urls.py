@@ -11,7 +11,7 @@ urlpatterns = [
 
     ##################################### Plans URLs #########################################
     path('plans', PlanListView.as_view(),name='plan-list'),
-
+    path('plans/create',PlanCreateView.as_view(),name='plan-create'),
     ################################ Subscriptions URLs ######################################
     path('subscriptions', SubListView.as_view(),name='sub-list'),
     path('subscriptions/create',SubCreateView.as_view(),name='sub-create'),

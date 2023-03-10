@@ -46,10 +46,15 @@ class ClienDeletetView(DeleteView):
 #############################################################
 
 class PlanListView(ListView):
-    template_name ="subscriptions/sub_list.html"
+    template_name ="plans/plan_list.html"
     queryset = Subscription.objects.all()
     context_object_name = "plans"
-
+class planCreateView(CreateView):
+    template_name = "plans/plan_create.html"
+    form_class = PlanModelForm
+    
+    def get_success_url(self):
+        return resolve_url("clients:plan-list")
 
 #############################################################
 #################### Subscriptions Views ####################
