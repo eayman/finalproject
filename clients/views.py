@@ -66,7 +66,7 @@ class PlanUpdateView(UpdateView):
     
 
 class PlanDeletetView(DeleteView):
-    template_name = "clients/plan_delete.html"
+    template_name = "plans/plan_delete.html"
     queryset = Plan.objects.all()
     def get_success_url(self):
         return resolve_url("clients:plan-list")
