@@ -75,8 +75,7 @@ class SubModelForm(ModelForm):
         model = Subscription
         fields = "__all__"
         
-        exclude = ('user',)
-
+       
 
 
     def __init__(self, *args, **kwargs ):
