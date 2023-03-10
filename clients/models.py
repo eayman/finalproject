@@ -53,14 +53,13 @@ class Plan(models.Model):
 
 class Subscription(models.Model):
 
-    def expiry(self):
-        return self.start_date + timedelta(months= self.plan.duration)
-    
     client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
     plan = models.OneToOneField(Plan, on_delete=models.DO_NOTHING)
     start_date = models.DateField(auto_now=True)
-    expiry_date = models.DateField(default=expiry)
-
+    
+    def expiry(self):
+        return self.start_date + timedelta(months= self.plan.duration)
+    
     
     def remaining_period(self):
         current_date = date.today()  
