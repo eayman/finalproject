@@ -14,7 +14,7 @@ class OffersPageView(TemplateView):
 class ClientListView(ListView):
     template_name ="clients/client_list.html"
     queryset = Client.objects.all()
-    context_object_name = "client"
+    context_object_name = "clients"
     
     
 class ClientCreateView(CreateView):
