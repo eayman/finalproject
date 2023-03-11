@@ -1,7 +1,7 @@
 from django.shortcuts import render ,resolve_url
 from .models import *
 from .forms import *
-from django.views.generic import TemplateView,ListView,CreateView,UpdateView,DeleteView 
+from django.views.generic import TemplateView,ListView,CreateView,UpdateView,DeleteView ,DetailView
 
 
 class OffersPageView(TemplateView):
@@ -71,6 +71,15 @@ class PlanDeletetView(DeleteView):
     queryset = Plan.objects.all()
     def get_success_url(self):
         return resolve_url("clients:plan-list")
+    
+    
+class PlanDetailView(DetailView):
+    template_name = "plans/view.html"
+    queryset = Plan.objects.all()
+    context_object_name = "plans"
+
+
+
 #############################################################
 #################### Subscriptions Views ####################
 #############################################################
@@ -89,7 +98,7 @@ class SubCreateView(CreateView):
     
     
 class SubUpdateView(UpdateView):
-    template_name = "clients/sub_update.html"
+    template_name = "subscriptions/sub_update.html"
     queryset = Subscription.objects.all()
     form_class =  SubModelForm
     
@@ -98,7 +107,8 @@ class SubUpdateView(UpdateView):
     
 
 class SubDeletetView(DeleteView):
-    template_name = "clients/sub_delete.html"
+    template_name = "subscriptions/sub_delete.html"
     queryset =Subscription.objects.all()
     def get_success_url(self):
         return resolve_url("clients:sub-list")
+
