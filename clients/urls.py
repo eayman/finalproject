@@ -14,8 +14,7 @@ urlpatterns = [
     path('plans/create',PlanCreateView.as_view(),name='plan-create'),
     path('plans/<int:pk>/update/',PlanUpdateView.as_view(), name='plan-update'),
     path('plans/<int:pk>/delete/',PlanDeletetView.as_view(), name='plan-delete'),
-    path('subscriptions/<int:pk>/',PlanDetailView.as_view(), name='view'),
-
+    
     ################################ Subscriptions URLs ######################################
     path('subscriptions', SubListView.as_view(),name='sub-list'),
     path('subscriptions/create',SubCreateView.as_view(),name='sub-create'),

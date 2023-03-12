@@ -73,11 +73,6 @@ class PlanDeletetView(DeleteView):
         return resolve_url("clients:plan-list")
     
     
-class PlanDetailView(DetailView):
-    template_name = "plans/view.html"
-    queryset = Plan.objects.all()
-    context_object_name = "plans"
-
 
 
 #############################################################
