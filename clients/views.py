@@ -3,7 +3,7 @@ from .models import *
 from .forms import *
 from django.urls import reverse_lazy  
 from django.views.generic import TemplateView,ListView,CreateView,UpdateView,DeleteView ,DetailView
-from django.contrib import messages
+
 
 class OffersPageView(TemplateView):
     template_name = "offers.html"
@@ -14,6 +14,8 @@ class OffersPageView(TemplateView):
 
 class ClientListView(ListView):
     template_name ="clients/client_list.html"
+    paginate_by = PAGE_RESULTS
+    paginator_class = MyPaginator # We use our paginator class
     queryset = Client.objects.all()
     context_object_name = "clients"
     
@@ -49,6 +51,8 @@ class ClientDeletetView(DeleteView):
 
 class PlanListView(ListView):
     template_name ="plans/plan_list.html"
+    paginate_by = PAGE_RESULTS
+    paginator_class = MyPaginator # We use our paginator class
     queryset = Plan.objects.all()
     context_object_name = "plans"
 
@@ -83,6 +87,8 @@ class PlanDeletetView(DeleteView):
 
 class SubListView(ListView):
     template_name ="subscriptions/sub_list.html"
+    paginate_by = PAGE_RESULTS
+    paginator_class = MyPaginator # We use our paginator class
     queryset = Subscription.objects.all()
     context_object_name = "subscriptions"
 
