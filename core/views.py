@@ -7,7 +7,7 @@ from django.dispatch import receiver
 from django.contrib.auth.views import LoginView
 from django.contrib import  messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from utils import MyPaginator
+from utils import MyPaginator, PAGE_RESULTS
 class LandingPageView(TemplateView):
     template_name = "landing.html"
 
@@ -17,7 +17,7 @@ class LandingPageView(TemplateView):
 class LeadListView(LoginRequiredMixin,ListView):
     login_url = 'login/'
     template_name = "leads/lead_list.html"
-    paginate_by = 5
+    paginate_by = PAGE_RESULTS
     paginator_class = MyPaginator # We use our paginator class
     
     def get_queryset(self):
@@ -61,6 +61,8 @@ class LeadDeleteView(DeleteView):
 
 class AgentListView(ListView):
     template_name = "agents/agent_list.html"
+    paginate_by = PAGE_RESULTS
+    paginator_class = MyPaginator # We use our paginator class
     queryset = Agent.objects.all()
     context_object_name = "agents"
 
