@@ -144,3 +144,12 @@ LOGOUT_REDIRECT_URL = "landing-page"
 #CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
 #CRISPY_TEMPLATE_PACK = 'uni-form'
+
+
+
+EMAIL_BACKEND = "django.core.mails.backend.smtp.EmailBackend"
+EMAIL_HOST =   "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "tt8ispcrm@gmail.com"
+EMAIL_HOST_PASSWORD = "ardo@123"

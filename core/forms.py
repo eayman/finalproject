@@ -10,10 +10,7 @@ class LeadModelForm(ModelForm):
     class Meta:
         model = Lead
         fields = "__all__"
-        exclude = ('agent',)
-  
-
-
+        #exclude = ('agent',)
     def __init__(self, *args, **kwargs ):
         super(LeadModelForm,self).__init__(*args, **kwargs)
         
@@ -32,13 +29,6 @@ class CustomUserCreationForm(UserCreationForm):
             'password1',
             'password2'
         )
-        @transaction.atomic
-        def save(self):
-            user = super(CustomUserCreationForm, self).save(commit= False)    
-            user.is_active = False;
-            user.save()
-            Agent.objects.create(user=user)
-        
     def __init__(self, *args, **kwargs ):
             super(CustomUserCreationForm,self).__init__(*args, **kwargs)
         
@@ -56,14 +46,9 @@ class CustomUserUpdateForm(UserChangeForm):
             'last_name',
             'email',
         )
-        def save(self):
-            
-            
-            user = super(CustomUserUpdateForm, self).save(commit= False) 
-            user.save()
-            agent = Agent.objects.get(user=user)
-            
-        
+        #def save(self):
+            #user = super(CustomUserUpdateForm, self).save(commit= False) 
+            #user.save()
     def __init__(self, *args, **kwargs ):
             super(CustomUserUpdateForm,self).__init__(*args, **kwargs)
             for label, field in self.fields.items():

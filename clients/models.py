@@ -14,7 +14,7 @@ class Client(models.Model):
     ]
     first_name=models.CharField(max_length=100 , null=False , blank=False)
     last_name=models.CharField(max_length=100 , null=False , blank=False)
-    NID = models.PositiveIntegerField(unique=True,verbose_name="National identification number")
+    NID = models.PositiveIntegerField(unique=True,verbose_name="National Identification Number")
     email = models.EmailField(null=True, blank=True,unique=True)
     address = models.CharField(max_length=50,choices=provinces, null=True, blank=True)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
@@ -38,7 +38,7 @@ class Plan(models.Model):
         (12,12),
     }
     name = models.CharField(max_length=200)
-    description = models.TextField(max_length=500,null=True,blank=True,help_text="enter details")
+    description = models.CharField(max_length=250,null=True,blank=True,help_text="enter details")
     speed = models.PositiveSmallIntegerField(choices=speeds)
     duration = models.PositiveSmallIntegerField(choices=periods)
     month_cost = models.PositiveSmallIntegerField()

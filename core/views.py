@@ -6,14 +6,30 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.views import LoginView
 from django.contrib import  messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 class LandingPageView(TemplateView):
     template_name = "landing.html"
 
-class LeadListView(ListView):
+class LeadListView(LoginRequiredMixin,ListView):
+    login_url = 'login/'
     template_name = "leads/lead_list.html"
-    queryset = Lead.objects.all()
+    paginate_by = 5
+    def get_queryset(self):
+        #user = self.request.user
+        queryset = Lead.objects.all()
+        return queryset
+        #if user.is_superuser:
+        #    return Lead.objects.all()
+        #else:
+        #    return Lead.objects.filter(agent=user.agent)
+
+
+    #queryset = Lead.objects.all()
     context_object_name = "leads"
+
+    
 
 class LeadCreateView(CreateView):
     template_name = "leads/lead_create.html"
