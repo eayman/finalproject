@@ -7,15 +7,19 @@ from django.dispatch import receiver
 from django.contrib.auth.views import LoginView
 from django.contrib import  messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-
+from utils import MyPaginator
 class LandingPageView(TemplateView):
     template_name = "landing.html"
+
+
+
 
 class LeadListView(LoginRequiredMixin,ListView):
     login_url = 'login/'
     template_name = "leads/lead_list.html"
     paginate_by = 5
+    paginator_class = MyPaginator # We use our paginator class
+    
     def get_queryset(self):
         #user = self.request.user
         queryset = Lead.objects.all()
