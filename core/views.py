@@ -1,11 +1,12 @@
 from django.views.generic import TemplateView,ListView,DetailView,CreateView,UpdateView,DeleteView 
 from .models import *
-from django.shortcuts import render, get_object_or_404,redirect, resolve_url
+from django.shortcuts import render, get_object_or_404,redirect, resolve_url ,HttpResponseRedirect
 from .forms import *
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.views import LoginView
 from django.contrib import  messages
+from django.urls import reverse_lazy  
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
@@ -17,16 +18,9 @@ class LeadListView(LoginRequiredMixin,ListView):
     template_name = "leads/lead_list.html"
     paginate_by = 5
     def get_queryset(self):
-        #user = self.request.user
         queryset = Lead.objects.all()
         return queryset
-        #if user.is_superuser:
-        #    return Lead.objects.all()
-        #else:
-        #    return Lead.objects.filter(agent=user.agent)
-
-
-    #queryset = Lead.objects.all()
+        
     context_object_name = "leads"
 
     
@@ -71,9 +65,29 @@ class AgentCreateView(CreateView):
     template_name = "agents/agent_create.html"
     form_class = CustomUserCreationForm
     
+    def post(self, request):
+
+        post_data = request.POST or None
+        file_data = request.FILES or None
+        form_class= CustomUserCreationForm (post_data, instance=request.user)
+        
+        if  form_class.is_valid():
+            form_class.save()
+            messages.success(request, 'Your Create agent successfully!')
+            return HttpResponseRedirect(reverse_lazy('agents'))
+
+        context = self.get_context_data(
+                                            form_class= CustomUserCreationForm
+                                        )
+        return self.render_to_response(context)     
+
+    def get(self, request, *args, **kwargs):
+            return self.post(request, *args, **kwargs) 
+        
     def get_success_url(self):
         return resolve_url("core:agent-list")
-
+    
+    
 
 
 
@@ -81,10 +95,27 @@ class AgentUpdateView(UpdateView):
     template_name = "agents/agent_update.html"
     queryset = User.objects.all()
     form_class = CustomUserUpdateForm
-    
+    def post(self, request):
+
+        post_data = request.POST or None
+        file_data = request.FILES or None
+        form_class= CustomUserUpdateForm (post_data, instance=request.user)
+        
+        if  form_class.is_valid():
+            form_class.save()
+            messages.success(request, 'Your Create agent successfully!')
+            return HttpResponseRedirect(reverse_lazy('agents'))
+
+        context = self.get_context_data(
+                                            form_class= CustomUserUpdateForm
+                                        )
+        return self.render_to_response(context)     
+
+    def get(self, request, *args, **kwargs):
+            return self.post(request, *args, **kwargs) 
+        
     def get_success_url(self):
         return resolve_url("core:agent-list")
-    
 
 class AgentDeleteView(DeleteView):
     template_name = "agents/agent_delete.html"

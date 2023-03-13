@@ -1,8 +1,9 @@
-from django.shortcuts import render ,resolve_url
+from django.shortcuts import render ,redirect, resolve_url ,HttpResponseRedirect
 from .models import *
 from .forms import *
+from django.urls import reverse_lazy  
 from django.views.generic import TemplateView,ListView,CreateView,UpdateView,DeleteView ,DetailView
-
+from django.contrib import messages
 
 class OffersPageView(TemplateView):
     template_name = "offers.html"
@@ -22,7 +23,8 @@ class ClientCreateView(CreateView):
     form_class = ClientModelForm
     
     def get_success_url(self):
-        return resolve_url("clients:client-list")
+            return resolve_url("clients:client-list")
+
     
 class ClientUpdateView(UpdateView):
     template_name = "clients/client_update.html"
