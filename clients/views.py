@@ -48,6 +48,13 @@ class ClientDeletetView(DeleteView):
 ###################### Plans Views ##########################
 #############################################################
 
+class OffersListView(ListView):
+    template_name ="offers.html"
+    paginate_by = 16
+    paginator_class = MyPaginator # We use our paginator class
+    queryset = Plan.objects.all()
+    context_object_name = "plans"
+
 class PlanListView(ListView):
     template_name ="plans/plan_list.html"
     paginate_by = PAGE_RESULTS

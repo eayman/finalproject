@@ -15,4 +15,4 @@ class MyPaginator(Paginator):
             else:
                 raise
 
-PAGE_RESULTS = 1
+PAGE_RESULTS = 8

@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.views.generic import TemplateView,ListView,DetailView,CreateView,UpdateView,DeleteView 
 from .models import *
 from django.shortcuts import render, get_object_or_404,redirect, resolve_url
@@ -8,11 +9,9 @@ from django.contrib.auth.views import LoginView
 from django.contrib import  messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from utils import MyPaginator, PAGE_RESULTS
+
 class LandingPageView(TemplateView):
     template_name = "landing.html"
-
-
-
 
 class LeadListView(LoginRequiredMixin,ListView):
     login_url = 'login/'
@@ -108,3 +107,11 @@ class CustomLoginView(LoginView):
 
 class ContactPageView(TemplateView):
     template_name = "contact.html"
+
+
+
+def change_contacted_status(request,pk):
+    lead = get_object_or_404(Lead,id=pk)
+    lead.is_contacted = not(lead.is_contacted)
+    lead.save()
+    return HttpResponse()
