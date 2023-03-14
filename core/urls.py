@@ -8,6 +8,7 @@ urlpatterns = [
     path('leads/create',LeadCreateView.as_view(),name='lead-create'),
     path('leads/<int:pk>/update/',LeadUpdateView.as_view(), name='lead-update'),
     path('leads/<int:pk>/delete/',LeadDeleteView.as_view(), name='lead-delete'),
+    
     #### Agent URLs
     path('agents',AgentListView.as_view(),name='agent-list'),
     path('agents/<int:pk>/',AgentDetailView.as_view(), name='agent-profile'),

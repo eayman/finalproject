@@ -10,7 +10,7 @@ class LeadModelForm(ModelForm):
     class Meta:
         model = Lead
         fields = "__all__"
-        #exclude = ('agent',)
+        exclude = ('agent','is_contacted',)
     def __init__(self, *args, **kwargs ):
         super(LeadModelForm,self).__init__(*args, **kwargs)
         
