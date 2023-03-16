@@ -5,8 +5,7 @@
 <section class="text-gray-600 body-font overflow-hidden">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-20">
-        <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Pricing</h1>
-        <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical.</p>
+        <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Offers</h1>
       </div>
       <div class="flex flex-wrap -m-4">
         <!--Plans Details-->
@@ -29,7 +28,7 @@
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
                   <path d="M20 6L9 17l-5-5"></path>
                 </svg>
-              </span>{{plan.speed}} speed.
+              </span>{{plan.speed}} Mega speed.
             </p>
             <p class="flex items-center text-gray-600 mb-2">
               <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
@@ -79,7 +78,7 @@
     {% for i in paginator.page_range %} 
     {% if page_obj.number == i %}
     <li>
-      <a aria-current="page" class="px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">{{ i }}</a>
+      <a aria-current="page" class="px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 ligth:border-gray-700 ligth:bg-gray-700 ligth:text-white">{{ i }}</a>
     </li>
     {% else %}
     <li>
