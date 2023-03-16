@@ -7,7 +7,7 @@
         <h1>Subscriptions</h1>
     </div>
     <div class="text-1xl text-gray-500 hover:text-blue-500">
-        <a href="{% url 'core:agent-create' %}"><button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+        <a href="{% url 'clients:sub-create' %}"><button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
           Create new subscription
         </button></a>
     </div>
@@ -17,48 +17,6 @@
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <div class="flex items-center justify-between pb-4">
-        <div>
-            <button id="dropdownRadioButton" data-dropdown-toggle="dropdownRadio" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 light:bg-gray-800 light:text-white light:border-gray-600 light:hover:bg-gray-700 light:hover:border-gray-600 light:focus:ring-gray-700" type="button">
-                <svg class="w-4 h-4 mr-2 text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
-                Last 30 days
-                <svg class="w-3 h-3 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <!-- Dropdown menu -->
-            <div id="dropdownRadio" class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow light:bg-gray-700 light:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(522.5px, 3847.5px, 0px);">
-                <ul class="p-3 space-y-1 text-sm text-gray-700 light:text-gray-200" aria-labelledby="dropdownRadioButton">
-                    <li>
-                        <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                            <input id="filter-radio-example-1" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                            <label for="filter-radio-example-1" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last day</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                            <input checked="" id="filter-radio-example-2" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                            <label for="filter-radio-example-2" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last 7 days</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                            <input id="filter-radio-example-3" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                            <label for="filter-radio-example-3" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last 30 days</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                            <input id="filter-radio-example-4" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                            <label for="filter-radio-example-4" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last month</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                            <input id="filter-radio-example-5" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                            <label for="filter-radio-example-5" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last year</label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -77,25 +35,25 @@
                     </div>
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Product name
+                    Name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Color
+                    Start Date
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Category
+                    Exipre Date
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Accesories
+                    Duration
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Available
+                    Remaining Period
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Price
+                    Speed
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Weight
+                    Month Cost
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Action
@@ -112,29 +70,34 @@
                     </div>
                 </td>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap light:text-white">
-                    Apple MacBook Pro 17"
+                    {{sub}}
                 </th>
                 <td class="px-6 py-4">
-                    Silver
+                    {{sub.start_date}}
                 </td>
                 <td class="px-6 py-4">
-                    Laptop
+                   test
                 </td>
                 <td class="px-6 py-4">
-                    Yes
+                    {% if sub.plan.duration == 1  %}
+                    {{sub.plan.duration}} month
+                    {% else %}
+                    {{sub.plan.duration}} months
+                    {% endif %}
                 </td>
                 <td class="px-6 py-4">
-                    Yes
+                    test
                 </td>
                 <td class="px-6 py-4">
-                    $2999
+                    {{sub.plan.speed}} Mega
                 </td>
                 <td class="px-6 py-4">
-                    3.0 lb.
+                    {{sub.plan.month_cost}} $
                 </td>
+             
                 <td class="flex items-center px-6 py-4 space-x-3">
-                    <a href="#" class="font-medium text-blue-600 light:text-blue-500 hover:underline">Edit</a>
-                    <a href="#" class="font-medium text-red-600 light:text-red-500 hover:underline">Remove</a>
+                    <a href="{% url 'clients:sub-update' sub.id%}" class="font-medium text-blue-600 light:text-blue-500 hover:underline">Edit</a>
+                    <a href="{% url 'clients:sub-delete' sub.id%}" class="font-medium text-red-600 light:text-red-500 hover:underline">Remove</a>
                 </td>
             </tr>
             {% endfor %}
@@ -142,9 +105,11 @@
         </tbody>
     </table>
 </div>
-<!--Pagination-->
+</div>
+<br>
+ <!--Pagination-->
     
-<nav aria-label="Page navig ation example" class="grid place-items-center" >
+ <nav aria-label="Page navig ation example" class="grid place-items-center" >
     {% if is_paginated %}
     <ul class="inline-flex -space-x-px items-center	justify-between" >
       {% if page_obj.has_previous %}
@@ -160,7 +125,7 @@
       {% for i in paginator.page_range %} 
       {% if page_obj.number == i %}
       <li>
-        <a aria-current="page" class="px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">{{ i }}</a>
+        <a aria-current="page" class="px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 ligth:border-gray-700 ligth:bg-gray-700 ligth:text-white">{{ i }}</a>
       </li>
       {% else %}
       <li>
@@ -179,8 +144,7 @@
       {% endif %}
     </ul>
     {% endif %}
-    
-</nav>
+  </nav>
   
 
 
