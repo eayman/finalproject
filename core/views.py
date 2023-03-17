@@ -15,7 +15,7 @@ class LandingPageView(TemplateView):
     template_name = "landing.html"
 
 class LeadListView(LoginRequiredMixin,ListView):
-    login_url = 'login/'
+    
     template_name = "leads/lead_list.html"
     paginate_by = PAGE_RESULTS
     paginator_class = MyPaginator # We use our paginator class
@@ -28,14 +28,14 @@ class LeadListView(LoginRequiredMixin,ListView):
 
     
 
-class LeadCreateView(CreateView):
+class LeadCreateView(LoginRequiredMixin, CreateView):
     template_name = "leads/lead_create.html"
     form_class = LeadModelForm
     
     def get_success_url(self):
         return resolve_url("core:lead-list")
     
-class LeadUpdateView(UpdateView):
+class LeadUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "leads/lead_update.html"
     queryset = Lead.objects.all()
     form_class = LeadModelForm
@@ -44,7 +44,7 @@ class LeadUpdateView(UpdateView):
         return resolve_url("core:lead-list")
     
 
-class LeadDeleteView(DeleteView):
+class LeadDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "leads/lead_delete.html"
     queryset = Lead.objects.all()
     
@@ -52,21 +52,21 @@ class LeadDeleteView(DeleteView):
         return resolve_url("core:lead-list")
     
 
-class AgentListView(ListView):
+class AgentListView(LoginRequiredMixin, ListView):
     template_name = "agents/agent_list.html"
     paginate_by = PAGE_RESULTS
     paginator_class = MyPaginator # We use our paginator class
     queryset = Agent.objects.all()
     context_object_name = "agents"
 
-class AgentDetailView(DetailView):
+class AgentDetailView(LoginRequiredMixin, DetailView):
     template_name = "agents/agent_profile.html"
     queryset = Agent.objects.all()
     context_object_name = "agent"
 
 
 
-class AgentCreateView(CreateView):
+class AgentCreateView(LoginRequiredMixin, CreateView):
     template_name = "agents/agent_create.html"
     form_class = CustomUserCreationForm
     
@@ -96,7 +96,7 @@ class AgentCreateView(CreateView):
 
 
 
-class AgentUpdateView(UpdateView):
+class AgentUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "agents/agent_update.html"
     queryset = User.objects.all()
     form_class = CustomUserUpdateForm
@@ -122,7 +122,7 @@ class AgentUpdateView(UpdateView):
     def get_success_url(self):
         return resolve_url("core:agent-list")
 
-class AgentDeleteView(DeleteView):
+class AgentDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "agents/agent_delete.html"
     queryset = User.objects.all()
 
@@ -141,7 +141,7 @@ class ContactPageView(TemplateView):
 
 
 
-def change_contacted_status(request,pk):
+def change_contacted_status(LoginRequiredMixin, request,pk):
     lead = get_object_or_404(Lead,id=pk)
     lead.is_contacted = not(lead.is_contacted)
     lead.save()

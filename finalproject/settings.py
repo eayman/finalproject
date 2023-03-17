@@ -153,7 +153,7 @@ EMAIL_HOST =   "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "tt8ispcrm@gmail.com"
-EMAIL_HOST_PASSWORD = "ardo@123"
+EMAIL_HOST_PASSWORD = ""
 
 import os
 from django.contrib.messages import constants as messages
@@ -165,3 +165,6 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+
+LOGIN_URL = 'login/'

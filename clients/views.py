@@ -3,6 +3,8 @@ from .models import *
 from .forms import *
 from django.urls import reverse_lazy  
 from django.views.generic import TemplateView,ListView,CreateView,UpdateView,DeleteView ,DetailView
+from utils import PAGE_RESULTS, MyPaginator
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class OffersPageView(TemplateView):
@@ -12,7 +14,7 @@ class OffersPageView(TemplateView):
 #################### Clients Views ##########################
 #############################################################
 
-class ClientListView(ListView):
+class ClientListView(LoginRequiredMixin, ListView):
     template_name ="clients/client_list.html"
     paginate_by = PAGE_RESULTS
     paginator_class = MyPaginator # We use our paginator class
@@ -20,7 +22,7 @@ class ClientListView(ListView):
     context_object_name = "clients"
     
     
-class ClientCreateView(CreateView):
+class ClientCreateView(LoginRequiredMixin, CreateView):
     template_name = "clients/client_create.html"
     form_class = ClientModelForm
     
@@ -28,7 +30,7 @@ class ClientCreateView(CreateView):
             return resolve_url("clients:client-list")
 
     
-class ClientUpdateView(UpdateView):
+class ClientUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "clients/client_update.html"
     queryset = Client.objects.all()
     form_class = ClientModelForm
@@ -37,7 +39,7 @@ class ClientUpdateView(UpdateView):
         return resolve_url("clients:client-list")
     
 
-class ClientDeletetView(DeleteView):
+class ClientDeletetView(LoginRequiredMixin, DeleteView):
     template_name = "clients/client_delete.html"
     queryset = Client.objects.all()
     def get_success_url(self):
@@ -49,28 +51,28 @@ class ClientDeletetView(DeleteView):
 ###################### Plans Views ##########################
 #############################################################
 
-class OffersListView(ListView):
+class OffersListView( ListView):
     template_name ="offers.html"
     paginate_by = 4
     paginator_class = MyPaginator # We use our paginator class
     queryset = Plan.objects.all()
     context_object_name = "plans"
 
-class PlanListView(ListView):
+class PlanListView(LoginRequiredMixin, ListView):
     template_name ="plans/plan_list.html"
     paginate_by = PAGE_RESULTS
     paginator_class = MyPaginator # We use our paginator class
     queryset = Plan.objects.all()
     context_object_name = "plans"
 
-class PlanCreateView(CreateView):
+class PlanCreateView(LoginRequiredMixin, CreateView):
     template_name = "plans/plan_create.html"
     form_class = PlanModelForm
     def get_success_url(self):
         return resolve_url("clients:plan-list")
 
 
-class PlanUpdateView(UpdateView):
+class PlanUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "plans/plan_update.html"
     queryset = Plan.objects.all()
     form_class = PlanModelForm
@@ -79,7 +81,7 @@ class PlanUpdateView(UpdateView):
         return resolve_url("clients:plan-list")
     
 
-class PlanDeletetView(DeleteView):
+class PlanDeletetView(LoginRequiredMixin, DeleteView):
     template_name = "plans/plan_delete.html"
     queryset = Plan.objects.all()
     def get_success_url(self):
@@ -92,14 +94,14 @@ class PlanDeletetView(DeleteView):
 #################### Subscriptions Views ####################
 #############################################################
 
-class SubListView(ListView):
+class SubListView(LoginRequiredMixin, ListView):
     template_name ="subscriptions/sub_list.html"
     paginate_by = PAGE_RESULTS
     paginator_class = MyPaginator # We use our paginator class
     queryset = Subscription.objects.all()
     context_object_name = "subscriptions"
 
-class SubCreateView(CreateView):
+class SubCreateView(LoginRequiredMixin, CreateView):
     template_name = "subscriptions/sub_create.html"
     form_class = SubModelForm
     
@@ -107,7 +109,7 @@ class SubCreateView(CreateView):
         return resolve_url("clients:sub-list")
     
     
-class SubUpdateView(UpdateView):
+class SubUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "subscriptions/sub_update.html"
     queryset = Subscription.objects.all()
     form_class =  SubModelForm
@@ -116,7 +118,7 @@ class SubUpdateView(UpdateView):
         return resolve_url("clients:sub-list")
     
 
-class SubDeletetView(DeleteView):
+class SubDeletetView(LoginRequiredMixin, DeleteView):
     template_name = "subscriptions/sub_delete.html"
     queryset =Subscription.objects.all()
     def get_success_url(self):
