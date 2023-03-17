@@ -70,25 +70,7 @@ class AgentCreateView(LoginRequiredMixin, CreateView):
     template_name = "agents/agent_create.html"
     form_class = CustomUserCreationForm
     
-    def post(self, request):
-
-        post_data = request.POST or None
-        file_data = request.FILES or None
-        form_class= CustomUserCreationForm (post_data, instance=request.user)
-        
-        if  form_class.is_valid():
-            form_class.save()
-            messages.success(request, 'Your Create agent successfully!')
-            return HttpResponseRedirect(reverse_lazy('agents'))
-
-        context = self.get_context_data(
-                                            form_class= CustomUserCreationForm
-                                        )
-        return self.render_to_response(context)     
-
-    def get(self, request, *args, **kwargs):
-            return self.post(request, *args, **kwargs) 
-        
+    
     def get_success_url(self):
         return resolve_url("core:agent-list")
     
@@ -100,25 +82,7 @@ class AgentUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "agents/agent_update.html"
     queryset = User.objects.all()
     form_class = CustomUserUpdateForm
-    def post(self, request):
-
-        post_data = request.POST or None
-        file_data = request.FILES or None
-        form_class= CustomUserUpdateForm (post_data, instance=request.user)
-        
-        if  form_class.is_valid():
-            form_class.save()
-            messages.success(request, 'Your Create agent successfully!')
-            return HttpResponseRedirect(reverse_lazy('agents'))
-
-        context = self.get_context_data(
-                                            form_class= CustomUserUpdateForm
-                                        )
-        return self.render_to_response(context)     
-
-    def get(self, request, *args, **kwargs):
-            return self.post(request, *args, **kwargs) 
-        
+    
     def get_success_url(self):
         return resolve_url("core:agent-list")
 
