@@ -13,27 +13,21 @@
 
 </head>
 <body class="min-h-screen">
-    {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-   
         {% include 'navbar.html' %}
-        <div class="max-w-7xl mx-auto">
-            
-        {% block content %}
+        <div class="max-w-7xl mx-auto" id="content">
 
-        {% endblock content %}
+        {% include 'messages.html' %}
+
+        {% block content %}  {% endblock content %}
+        
+
         </div>
     
 
-  
+
     {% include "footer.html" %}
 
-   
+
 </body>
 
 

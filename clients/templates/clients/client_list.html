@@ -17,48 +17,7 @@
 <!-- component -->
 <div class="overflow-hidden rounded-lg shadow-md m-5">
   <div class="flex items-center justify-between pb-4">
-    <div>
-        <button id="dropdownRadioButton" data-dropdown-toggle="dropdownRadio" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 light:bg-gray-800 light:text-white light:border-gray-600 light:hover:bg-gray-700 light:hover:border-gray-600 light:focus:ring-gray-700" type="button">
-            <svg class="w-4 h-4 mr-2 text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
-            Last 30 days
-            <svg class="w-3 h-3 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </button>
-        <!-- Dropdown menu -->
-        <div id="dropdownRadio" class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow light:bg-gray-700 light:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(522.5px, 3847.5px, 0px);">
-            <ul class="p-3 space-y-1 text-sm text-gray-700 light:text-gray-200" aria-labelledby="dropdownRadioButton">
-                <li>
-                    <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                        <input id="filter-radio-example-1" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                        <label for="filter-radio-example-1" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last day</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                        <input checked="" id="filter-radio-example-2" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                        <label for="filter-radio-example-2" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last 7 days</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                        <input id="filter-radio-example-3" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                        <label for="filter-radio-example-3" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last 30 days</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                        <input id="filter-radio-example-4" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                        <label for="filter-radio-example-4" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last month</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                        <input id="filter-radio-example-5" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                        <label for="filter-radio-example-5" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last year</label>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+  
     <label for="table-search" class="sr-only">Search</label>
     <div class="relative">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -71,13 +30,10 @@
       <thead class="bg-gray-50">
         <tr>
           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
-          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Address</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">NID</th>
           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Email</th>
-          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Send Email</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Address</th>
           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Phone</th>
-          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Whatsapp</th>
-          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Facebook</th>
-          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Messenger</th>
           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Actions</th>
         </tr>
       </thead>
@@ -90,17 +46,9 @@
               
             </div>
           </th>
-          <td class="px-6 py-4">{{client.address}}</td>
-          </td>
+          <td class="px-6 py-4">{{client.NID}}</td>
           <td class="px-6 py-4">{{client.email}}</td>
-          <td class="px-6 py-4">
-            
-            <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
-              <a href="mailto:{{lead.email}}">Send Email</a>
-              </span>
-            
-          </td>
-          
+          <td class="px-6 py-4">{{client.address}}</td>
           <td class="px-6 py-4">
             <div class="flex gap-2">
               <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
@@ -109,59 +57,7 @@
             </div>
           </td>
 
-          <td class="px-6 py-4">
-            <div class="flex gap-2">
-               <!-- Whatsapp -->
-                   <a href="https://wa.me/{{client.phone_number}}" target="_blank">
-                    <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-7 w-7"
-                    fill="currentColor"
-                    style="color: #128c7e"
-                    viewBox="0 0 24 24">
-                    <path
-                      d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
-                  </svg>
-                   </a>
-            </div>
-          </td>
-
-          <td class="px-6 py-4">
-            <div class="flex gap-2">
-                <!-- Facebook -->
-                  <a href="{{client.fb_account}}" target="_blank">
-                    <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-7 w-7"
-                    fill="currentColor"
-                    style="color: #1877f2"
-                    viewBox="0 0 24 24">
-                    <path
-                        d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-                    </svg>
-                  </a>
-            </div>
-          </td>
-
-          <td class="px-6 py-4">
-            <div class="flex gap-2">
-                <!-- Messenger -->
-                   <a href="https://m.me/grubngomealdelivery" target="_blank">
-                     
-                      <svg
-                      class="h-7 w-7"
-                      fill="currentColor"
-                      viewbox="0 0 24 24"
-                      style="color: #0084ff"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill-rule="evenodd"
-                      clip-rule="evenodd">
-                      <path
-                        d="M12 0c-6.627 0-12 4.975-12 11.111 0 3.497 1.745 6.616 4.472 8.652v4.237l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.974 12-11.111 0-6.136-5.373-11.111-12-11.111zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z" />
-                    </svg>
-                   </a>
-            </div>
-          </td>
+ 
          
 
           
@@ -227,7 +123,7 @@
     {% for i in paginator.page_range %} 
     {% if page_obj.number == i %}
     <li>
-      <a aria-current="page" class="px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">{{ i }}</a>
+      <a aria-current="page" class="px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 ligth:border-gray-700 ligth:bg-gray-700 ligth:text-white">{{ i }}</a>
     </li>
     {% else %}
     <li>

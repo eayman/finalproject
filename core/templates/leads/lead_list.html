@@ -17,48 +17,6 @@
 <!-- component -->
 <div class="overflow-hidden rounded-lg shadow-md m-5">
   <div class="flex items-center justify-between pb-4">
-    <div>
-        <button id="dropdownRadioButton" data-dropdown-toggle="dropdownRadio" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 light:bg-gray-800 light:text-white light:border-gray-600 light:hover:bg-gray-700 light:hover:border-gray-600 light:focus:ring-gray-700" type="button">
-            <svg class="w-4 h-4 mr-2 text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
-            Last 30 days
-            <svg class="w-3 h-3 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </button>
-        <!-- Dropdown menu -->
-        <div id="dropdownRadio" class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow light:bg-gray-700 light:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(522.5px, 3847.5px, 0px);">
-            <ul class="p-3 space-y-1 text-sm text-gray-700 light:text-gray-200" aria-labelledby="dropdownRadioButton">
-                <li>
-                    <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                        <input id="filter-radio-example-1" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                        <label for="filter-radio-example-1" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last day</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                        <input checked="" id="filter-radio-example-2" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                        <label for="filter-radio-example-2" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last 7 days</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                        <input id="filter-radio-example-3" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                        <label for="filter-radio-example-3" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last 30 days</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                        <input id="filter-radio-example-4" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                        <label for="filter-radio-example-4" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last month</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="flex items-center p-2 rounded hover:bg-gray-100 light:hover:bg-gray-600">
-                        <input id="filter-radio-example-5" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 light:focus:ring-blue-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800 focus:ring-2 light:bg-gray-700 light:border-gray-600">
-                        <label for="filter-radio-example-5" class="w-full ml-2 text-sm font-medium text-gray-900 rounded light:text-gray-300">Last year</label>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
     <label for="table-search" class="sr-only">Search</label>
     <div class="relative">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -71,20 +29,22 @@
     <table id="content-table" class="w-full border-collapse bg-white text-left text-sm text-gray-500">
       <thead class="bg-gray-50">
         <tr>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">ID</th>
           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Address</th>
           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Email</th>
           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Send Email</th>
           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Phone</th>
           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Whatsapp</th>
-          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Facebook</th>
           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Messenger</th>
+          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Contacted</th>
           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Actions</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-100 border-t border-gray-100">
         {% for lead in leads %}
         <tr class="hover:bg-gray-50">
+          <td class="lead-id px-6 py-4">{{lead.id}}</td>
           <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
             <div class="text-sm">
               <div class="font-medium text-gray-700">{{lead}}</div>
@@ -109,7 +69,7 @@
               </span>
             </div>
           </td>
-
+        
           <td class="px-6 py-4">
             <div class="flex gap-2">
                <!-- Whatsapp -->
@@ -126,24 +86,7 @@
                    </a>
             </div>
           </td>
-
-          <td class="px-6 py-4">
-            <div class="flex gap-2">
-                <!-- Facebook -->
-                   <a href="{{lead.fb_account}}" target="_blank">
-                    <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-7 w-7"
-                    fill="currentColor"
-                    style="color: #1877f2"
-                    viewBox="0 0 24 24">
-                    <path
-                        d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-                    </svg>
-                   </a>
-            </div>
-          </td>
-
+  
           <td class="px-6 py-4">
             <div class="flex gap-2">
                 <!-- Messenger -->
@@ -163,7 +106,21 @@
                    </a>
             </div>
           </td>
-         
+          <td class="px-6 py-4">
+            <!-- Contacted -->
+            <div class="flex gap-2">
+                <label class="relative inline-flex items-center mb-5 cursor-pointer">
+                {% if lead.is_contacted %}
+                  <input type="checkbox" value="" class="sr-only peer" checked onchange="changeContactedStatus(this)" >
+                  {% else %}
+                  <input type="checkbox" value="" class="sr-only peer" onchange="changeContactedStatus(this)" >
+                  {% endif %}
+                  <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                </label>
+                
+               
+            </div>
+          </td>
 
           
           <td class="px-6 py-4">
@@ -229,7 +186,7 @@
     {% for i in paginator.page_range %} 
     {% if page_obj.number == i %}
     <li>
-      <a aria-current="page" class="px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">{{ i }}</a>
+      <a aria-current="page" class="px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 light:border-gray-700 light:bg-gray-700 light:text-white">{{ i }}</a>
     </li>
     {% else %}
     <li>
@@ -251,6 +208,15 @@
 </nav>
 
 
-
+<script>
+  function changeContactedStatus(sender) {
+    
+   leadid = sender.parentElement.parentElement.parentElement.parentElement.getElementsByTagName("td").item(0).innerHTML
+   const xhttp = new XMLHttpRequest();
+ 
+  xhttp.open("GET", "change-contacted/" + leadid);
+  xhttp.send();
+  }
+</script>
 
 {% endblock content %}
